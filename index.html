@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- после продажи удалить -->
+<meta name="robots" content="noindex, nofollow">
+<title>ГаражРемСервис — ремонт гаражей в Комсомольске-на-Амуре</title>
+<meta name="description" content="Ремонт гаражей в Комсомольске-на-Амуре: ворота под ключ, затворы контейнерного типа, крыша и гидроизоляция, полы, подъём и перевозка гаражей, сварка, электрика.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700;800;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #e8e5de; --paper-2: #dedad1; --ink: #1b1c1e; --mute: #5d5e5c; --rule: rgba(27,28,30,.18);
+    --coal: #17181a; --coal-2: #212326; --on-coal: #eeece6; --on-coal-mute: #a9a9a3; --rule-coal: rgba(255,255,255,.13);
+    --brick: #a8391f; --brick-hi: #c64a2c; --green: #1e5a3b; --strip: #f0c02c;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+  body { background: var(--paper); color: var(--ink); font: 400 17px/1.6 "Golos Text", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, .sc { font-family: "Alegreya SC", Georgia, serif; font-weight: 800; line-height: 1.02; letter-spacing: .005em; }
+  h2 { font-size: clamp(34px, 5vw, 58px); max-width: 16ch; }
+  .wrap { width: min(1160px, 100% - 40px); margin: 0 auto; }
+  section { padding: 92px 0; }
+  .lede { margin-top: 18px; max-width: 620px; color: var(--mute); font-size: 18px; }
+  .dark { background: var(--coal); color: var(--on-coal); }
+  .dark .lede { color: var(--on-coal-mute); }
+  .u { border-bottom: 1px solid currentColor; }
+
+  /* Шапка */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 30; color: var(--on-coal); transition: background .25s, box-shadow .25s; }
+  header.solid, header.open { background: rgba(23,24,26,.97); box-shadow: 0 1px 0 var(--rule-coal); }
+  .bar { display: flex; align-items: center; gap: 28px; height: 70px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+  .brand .tag { background: var(--strip); color: var(--brick); padding: 3px 9px 2px; font: 900 21px/1.1 "Alegreya SC", serif; letter-spacing: .01em; }
+  nav { display: flex; gap: 26px; margin-left: auto; font-size: 15px; }
+  nav a { color: #cfcec8; } nav a:hover { color: #fff; }
+  .tel { font: 800 21px/1 "Alegreya SC", serif; letter-spacing: .02em; white-space: nowrap; }
+  .burger { display: none; margin-left: auto; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; }
+  .burger i { display: block; width: 24px; height: 2px; margin: 5px auto; background: var(--on-coal); }
+
+  /* Первый экран */
+  .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; padding: 130px 0 0; color: var(--on-coal); background: #0f1011 url("https://i9.photo.2gis.com/photo-gallery/5d835186-bb1f-497c-8800-01712d004854.jpg") center 40%/cover no-repeat; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,16,17,.62) 0, rgba(15,16,17,.2) 30%, rgba(15,16,17,.82) 70%, rgba(15,16,17,.96) 100%); }
+  .hero .wrap { position: relative; }
+  .hero h1 { font-size: clamp(54px, 10.5vw, 132px); font-weight: 900; line-height: .9; }
+  .hero h1 small { display: block; margin-top: 14px; font-size: .34em; font-weight: 700; letter-spacing: .03em; color: var(--strip); line-height: 1.1; }
+  .hero .lead { max-width: 600px; margin: 26px 0 30px; font-size: 20px; color: #e2e0da; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; border: 2px solid var(--brick); background: var(--brick); color: #fff; font: 600 17px/1 "Golos Text", sans-serif; cursor: pointer; transition: background .15s, border-color .15s; }
+  .btn:hover { background: var(--brick-hi); border-color: var(--brick-hi); }
+  .btn.ghost { background: transparent; border-color: rgba(255,255,255,.45); }
+  .btn.ghost:hover { border-color: #fff; background: rgba(255,255,255,.06); }
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 54px; border-top: 1px solid var(--rule-coal); }
+  .facts div { padding: 20px 20px 26px 0; font-size: 15px; color: var(--on-coal-mute); }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--rule-coal); }
+  .facts b { display: block; margin-bottom: 4px; font: 800 27px/1 "Alegreya SC", serif; color: var(--on-coal); }
+
+  /* Что делаем */
+  .jobs { margin-top: 44px; border-bottom: 2px solid var(--ink); }
+  .job { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 30px; padding: 26px 0 28px; border-top: 2px solid var(--ink); }
+  .job h3 { font-size: clamp(27px, 3vw, 36px); }
+  .job h3 span { display: block; margin-top: 8px; font: 400 15px/1.45 "Golos Text", sans-serif; color: var(--mute); letter-spacing: 0; max-width: 28ch; }
+  .job ul { list-style: none; padding: 0; columns: 2; column-gap: 34px; }
+  .job li { break-inside: avoid; padding: 7px 0 7px 22px; position: relative; border-bottom: 1px solid var(--rule); }
+  .job li::before { content: ""; position: absolute; left: 0; top: 1.05em; width: 10px; height: 3px; background: var(--brick); }
+  .price { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 30px; margin-top: 34px; }
+  .price h3 { font-size: 27px; color: var(--brick); }
+  .price p { max-width: 640px; }
+
+  /* Затвор */
+  #lock { background: var(--green); color: #f1efe8; padding: 84px 0; }
+  .lock { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 64px; align-items: start; }
+  #lock h2 { max-width: 13ch; }
+  #lock p.txt { margin-top: 20px; font-size: 18px; color: #d7e2d9; max-width: 520px; }
+  .said { display: grid; gap: 26px; }
+  .said blockquote { padding-left: 22px; border-left: 3px solid var(--strip); }
+  .said p { font-size: 19px; line-height: 1.5; }
+  .said cite, .revs cite { display: block; margin-top: 8px; font-style: normal; font-size: 14.5px; }
+  .said cite { color: #b9cdbf; }
+
+  /* Работы */
+  .shots { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 34px 20px; margin-top: 44px; }
+  .shots figure { grid-column: span 4; }
+  .shots figure.w8 { grid-column: span 8; } .shots figure.w6 { grid-column: span 6; } .shots figure.w3 { grid-column: span 3; }
+  .shots a { display: block; overflow: hidden; background: var(--coal-2); }
+  .shots img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; transition: transform .35s; }
+  .shots .w8 img { aspect-ratio: 16 / 9.4; } .shots .tall img { aspect-ratio: 3 / 4; } .shots .sq img { aspect-ratio: 1; }
+  .shots a:hover img { transform: scale(1.025); }
+  .shots figcaption { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule-coal); font-size: 15px; color: var(--on-coal-mute); }
+  .shots figcaption b { display: block; font: 800 21px/1.1 "Alegreya SC", serif; color: var(--on-coal); margin-bottom: 3px; }
+  .more { margin-top: 40px; color: var(--on-coal-mute); }
+  .more a { color: var(--strip); }
+
+  /* Отзывы */
+  .rev-head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: end; }
+  .score { display: flex; align-items: baseline; gap: 18px; justify-content: flex-end; }
+  .score b { font: 900 clamp(84px, 11vw, 136px)/.8 "Alegreya SC", serif; color: var(--brick); }
+  .score span { font-size: 15px; color: var(--mute); max-width: 15ch; line-height: 1.35; }
+  .revs { columns: 3; column-gap: 40px; margin-top: 50px; }
+  .revs blockquote { break-inside: avoid; margin-bottom: 34px; padding-top: 18px; border-top: 2px solid var(--ink); }
+  .revs p { font-size: 17.5px; line-height: 1.55; }
+  .revs cite { color: var(--mute); } .revs cite b { color: var(--ink); font-weight: 600; }
+  .rev-all { margin-top: 10px; color: var(--mute); } .rev-all a { color: var(--brick); }
+
+  /* Как проходит */
+  #how { background: var(--paper-2); }
+  .how { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 30px; }
+  .how ol { list-style: none; padding: 0; counter-reset: s; border-top: 2px solid var(--ink); }
+  .how li { counter-increment: s; display: grid; grid-template-columns: 54px minmax(0, 1fr); padding: 18px 0; border-bottom: 1px solid var(--rule); font-size: 18px; }
+  .how li::before { content: counter(s); font: 900 30px/1 "Alegreya SC", serif; color: var(--brick); }
+  .how li span { display: block; font-size: 15px; color: var(--mute); margin-top: 2px; }
+  .how .src { margin-top: 18px; font-size: 14.5px; color: var(--mute); }
+
+  /* Заявка */
+  .order { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 60px; align-items: start; }
+  .order .side p { color: #d4d2cc; margin-top: 18px; }
+  .order .side .tip { margin-top: 26px; padding: 16px 0 0; border-top: 1px solid var(--rule-coal); color: var(--on-coal-mute); font-size: 15.5px; }
+  form { display: grid; gap: 18px; }
+  label, legend { display: block; font-size: 14px; color: var(--on-coal-mute); margin-bottom: 7px; }
+  fieldset { border: 0; padding: 0; min-width: 0; }
+  input[type=text], input[type=tel], textarea, select { width: 100%; min-height: 52px; padding: 13px 14px; background: var(--coal-2); border: 1px solid var(--rule-coal); color: var(--on-coal); font: inherit; border-radius: 0; -webkit-appearance: none; appearance: none; }
+  select { background-image: linear-gradient(45deg, transparent 50%, var(--on-coal-mute) 50%), linear-gradient(135deg, var(--on-coal-mute) 50%, transparent 50%); background-position: calc(100% - 20px) 23px, calc(100% - 14px) 23px; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 38px; }
+  textarea { min-height: 104px; resize: vertical; }
+  ::placeholder { color: #77787a; }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--strip); outline-offset: -1px; }
+  .checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .checks label { display: flex; align-items: center; gap: 11px; margin: 0; padding: 12px 13px; background: var(--coal-2); border: 1px solid var(--rule-coal); color: var(--on-coal); font-size: 16px; cursor: pointer; }
+  .checks label:has(input:checked) { border-color: var(--strip); }
+  .checks input { width: 18px; height: 18px; accent-color: var(--strip); flex: none; }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .send { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .btn.wa { background: #1f8f4e; border-color: #1f8f4e; } .btn.wa:hover { background: #25a35a; border-color: #25a35a; }
+  .btn.tg { background: #2787c2; border-color: #2787c2; } .btn.tg:hover { background: #2f98d8; border-color: #2f98d8; }
+  .err { color: #ff8a73; font-size: 15px; min-height: 22px; }
+  .small { font-size: 13px; color: var(--on-coal-mute); }
+
+  /* Контакты */
+  .contacts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; margin-top: 44px; border-top: 2px solid var(--ink); padding-top: 26px; }
+  .contacts h3 { font: 500 14px/1.3 "Golos Text", sans-serif; color: var(--mute); margin-bottom: 8px; letter-spacing: 0; }
+  .contacts p { font-size: 19px; line-height: 1.45; }
+  .contacts .big { font: 800 30px/1.1 "Alegreya SC", serif; }
+  .contacts .sub { font-size: 16px; margin-top: 8px; color: var(--mute); } .contacts .sub a { color: var(--brick); }
+  footer { padding: 28px 0 100px; border-top: 1px solid var(--rule); color: var(--mute); font-size: 14px; }
+
+  .dock { display: none; }
+
+  @media (max-width: 900px) {
+    body { font-size: 16px; }
+    section { padding: 62px 0; } #lock { padding: 62px 0; }
+    .burger { display: block; } .tel { display: none; }
+    nav { display: none; position: absolute; left: 0; right: 0; top: 70px; flex-direction: column; gap: 0; padding: 4px 20px 16px; background: rgba(23,24,26,.99); border-bottom: 1px solid var(--rule-coal); }
+    header.open nav { display: flex; }
+    nav a { padding: 14px 0; font-size: 18px; color: var(--on-coal); border-top: 1px solid var(--rule-coal); }
+    .hero .lead { font-size: 18px; }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 38px; }
+    .facts div { padding: 16px 12px 18px 0; } .facts div + div { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--rule-coal); }
+    .facts div:nth-child(n+3) { border-top: 1px solid var(--rule-coal); }
+    .facts b { font-size: 23px; }
+    .job, .price, .lock, .rev-head, .how, .order, .two { grid-template-columns: minmax(0, 1fr); }
+    .job { gap: 12px; padding: 22px 0; } .job ul { columns: 1; } .job h3 span { max-width: none; }
+    .price { gap: 8px; } .lock { gap: 34px; } .how { gap: 26px; } .order { gap: 34px; }
+    .rev-head { gap: 22px; } .score { justify-content: flex-start; }
+    .revs { columns: 1; margin-top: 34px; }
+    .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; margin-top: 32px; }
+    .shots figure, .shots figure.w6, .shots figure.w3 { grid-column: span 1; } .shots figure.w8 { grid-column: span 2; }
+    .shots figcaption { font-size: 14px; } .shots figcaption b { font-size: 18px; }
+    .contacts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 20px; }
+    .send { grid-template-columns: minmax(0, 1fr); }
+    .dock { display: grid; grid-template-columns: 1fr 1fr; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: var(--coal); border-top: 1px solid var(--rule-coal); padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); gap: 8px; }
+    .dock .btn { min-height: 48px; padding: 0 10px; font-size: 16px; }
+  }
+  @media (max-width: 460px) {
+    .contacts { grid-template-columns: minmax(0, 1fr); }
+    .checks label { padding: 11px 9px; gap: 8px; font-size: 14.5px; }
+    .brand .tag { font-size: 19px; }
+    .cta .btn { flex: 1 1 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .shots img { transition: none; } }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="ГаражРемСервис"><span class="tag">ГаражРемСервис</span></a>
+    <button class="burger" id="burger" aria-label="Меню"><i></i><i></i><i></i></button>
+    <nav id="nav">
+      <a href="#jobs">Что делаем</a>
+      <a href="#works">Работы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#order">Заявка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79638225000">+7 963 822-50-00</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Ремонт гаражей <small>Комсомольск-на-Амуре</small></h1>
+      <p class="lead">Ворота, крыша, пол, подъём и перевозка. Капитальные и металлические гаражи: приезжаем, замеряем, называем сумму и делаем под ключ.</p>
+      <div class="cta">
+        <a class="btn" href="#order">Оставить заявку</a>
+        <a class="btn ghost" href="tel:+79638225000">+7 963 822-50-00</a>
+      </div>
+      <div class="facts">
+        <div><b>5,0 в 2ГИС</b>31 оценка, 28 отзывов</div>
+        <div><b>Под ключ</b>от замера до уборки мусора</div>
+        <div><b>Выезд</b>к вашему гаражу</div>
+        <div><b>Пн–Пт</b>с 9:00 до 21:00</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="jobs">
+    <div class="wrap">
+      <h2>Что делаем с&nbsp;гаражом</h2>
+      <p class="lede">Можно заказать одну работу — например, только затвор или козырёк. Можно сразу всё: поднять, перестелить пол, перекрыть крышу и поставить новые ворота.</p>
+      <div class="jobs">
+        <div class="job">
+          <h3>Ворота <span>Старые перекосило, проём мал для машины или просто пора менять</span></h3>
+          <ul>
+            <li>Изготовление и установка ворот под ключ</li>
+            <li>Замена старых ворот с покраской</li>
+            <li>Увеличение проёма</li>
+            <li>Затворы контейнерного типа</li>
+            <li>Замки и упоры на двери</li>
+            <li>Козырёк над воротами</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Крыша <span>Течёт после дождя, сырость и плесень</span></h3>
+          <ul>
+            <li>Ремонт крыши гаража</li>
+            <li>Мягкая кровля</li>
+            <li>Гидроизоляция</li>
+            <li>Вентиляция</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Пол <span>Сгнили доски, просел или раскрошился бетон</span></h3>
+          <ul>
+            <li>Заливка бетонного пола</li>
+            <li>Замена деревянного пола</li>
+            <li>Отсыпка основания</li>
+            <li>Отсыпка заезда</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Подъём и&nbsp;перевозка <span>Гараж ушёл в землю, стал низким или его нужно переставить</span></h3>
+          <ul>
+            <li>Подъём просевшего гаража</li>
+            <li>Увеличение высоты гаража</li>
+            <li>Перевозка гаража на новое место</li>
+            <li>Отсыпка площадки под гараж</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Металл и&nbsp;сварка <span>Железный гараж проржавел или нужна деталь под размер</span></h3>
+          <ul>
+            <li>Ремонт металлических гаражей</li>
+            <li>Сварочные работы</li>
+            <li>Металлоизделия под ваш размер</li>
+            <li>Утепление гаража</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Внутри <span>Чтобы был свет и порядок</span></h3>
+          <ul>
+            <li>Электрика: щиток, проводка, свет</li>
+            <li>Полки и стеллажи</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price">
+        <h3>Сколько стоит</h3>
+        <p>Двух одинаковых гаражей не бывает, поэтому цену называем после осмотра и замера. Опишите задачу в заявке и приложите пару фото — сориентируем ещё до выезда. Оплата наличными или переводом.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lock">
+    <div class="wrap lock">
+      <div>
+        <h2>Затвор контейнерного типа</h2>
+        <p class="txt">С этим к нам обращаются чаще всего. Вместо стяжек и болтов, которые нужно крутить каждый раз, на ворота ставится затвор, как на морском контейнере: повернул рычаг — створки плотно прижаты. Изготавливаем сами, привариваем и красим.</p>
+        <p class="txt"><a class="u" href="#order">Узнать цену на свой гараж</a></p>
+      </div>
+      <div class="said">
+        <blockquote><p>Быстро изготовили и также быстро установили задвижки контейнерного типа! Теперь не мучаюсь, крутя стяжки.</p><cite>Санек, март 2025</cite></blockquote>
+        <blockquote><p>Сделали всё оперативно, в течение полудня два гаража были готовы. За собой убрали всё, замки аккуратно покрасили и сдали работу.</p><cite>Даниял, июль 2024</cite></blockquote>
+        <blockquote><p>От заказа до установки минимальный промежуток времени.</p><cite>Роман, апрель 2025</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="dark">
+    <div class="wrap">
+      <h2>Наши работы</h2>
+      <p class="lede">Фото с объектов в Комсомольске. Нажмите на снимок, чтобы открыть его крупно.</p>
+      <div class="shots">
+        <figure class="w8"><a href="https://i9.photo.2gis.com/photo-gallery/5d835186-bb1f-497c-8800-01712d004854.jpg" target="_blank" rel="noopener"><img src="https://i9.photo.2gis.com/photo-gallery/5d835186-bb1f-497c-8800-01712d004854.jpg" alt="Кирпичный гараж с новыми тёмными воротами и подсветкой" loading="lazy"></a><figcaption><b>Ворота и фасад</b>Капитальные гаражи с новыми воротами</figcaption></figure>
+        <figure class="tall"><a href="https://i4.photo.2gis.com/photo-gallery/7929a99d-4aa5-48d3-abcd-44cce50a79bb.jpg" target="_blank" rel="noopener"><img src="https://i4.photo.2gis.com/photo-gallery/7929a99d-4aa5-48d3-abcd-44cce50a79bb.jpg" alt="Мастер на лестнице у кирпичного гаража" loading="lazy"></a><figcaption><b>Кирпичный гараж</b>Работы на фасаде</figcaption></figure>
+        <figure class="w6 sq"><a href="https://i0.photo.2gis.com/photo-gallery/39c4425f-d706-4b89-9305-9eedf6a7846c.jpg" target="_blank" rel="noopener"><img src="https://i0.photo.2gis.com/photo-gallery/39c4425f-d706-4b89-9305-9eedf6a7846c.jpg" alt="Гаражные ворота: старые и новые" loading="lazy"></a><figcaption><b>Ворота</b>Было и стало: старые створки и новые ворота</figcaption></figure>
+        <figure class="w6 sq"><a href="https://i4.photo.2gis.com/photo-gallery/602a88fe-4838-41d3-81c7-20fcff1c8a0c.jpg" target="_blank" rel="noopener"><img src="https://i4.photo.2gis.com/photo-gallery/602a88fe-4838-41d3-81c7-20fcff1c8a0c.jpg" alt="Металлический гараж: этапы замены основания и пола" loading="lazy"></a><figcaption><b>Пол: от и до</b>Металлический гараж — старый пол убрали, отсыпали, уложили новое основание и доску</figcaption></figure>
+        <figure class="w3"><a href="https://i8.photo.2gis.com/photo-gallery/89c07578-ff08-4651-8611-8e7acc9f3421.jpg" target="_blank" rel="noopener"><img src="https://i8.photo.2gis.com/photo-gallery/89c07578-ff08-4651-8611-8e7acc9f3421.jpg" alt="Новый деревянный пол в гараже" loading="lazy"></a><figcaption><b>Новый пол</b>Доска по всей длине гаража</figcaption></figure>
+        <figure class="w3"><a href="https://i3.photo.2gis.com/photo-gallery/1da944bb-2bcd-40fe-b671-b1593e6b9e64.jpg" target="_blank" rel="noopener"><img src="https://i3.photo.2gis.com/photo-gallery/1da944bb-2bcd-40fe-b671-b1593e6b9e64.jpg" alt="Ремонт металлического гаража" loading="lazy"></a><figcaption><b>Металлический гараж</b>Ремонт на месте</figcaption></figure>
+        <figure class="w3"><a href="https://i3.photo.2gis.com/photo-gallery/e6909358-3440-480c-88c2-91d559df91d3.jpg" target="_blank" rel="noopener"><img src="https://i3.photo.2gis.com/photo-gallery/e6909358-3440-480c-88c2-91d559df91d3.jpg" alt="Полки на металлических кронштейнах" loading="lazy"></a><figcaption><b>Полки</b>Доска на сварных кронштейнах</figcaption></figure>
+        <figure class="w3"><a href="https://i0.photo.2gis.com/photo-gallery/7fe22f01-109d-4385-826e-2da4a15c9236.jpg" target="_blank" rel="noopener"><img src="https://i0.photo.2gis.com/photo-gallery/7fe22f01-109d-4385-826e-2da4a15c9236.jpg" alt="Электрощиток с автоматами и счётчиком" loading="lazy"></a><figcaption><b>Электрика</b>Щиток с автоматами и счётчиком</figcaption></figure>
+      </div>
+      <p class="more">Ещё больше двухсот фото — <a class="u" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001035872942/tab/photos" target="_blank" rel="noopener">в нашей карточке 2ГИС</a>.</p>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="rev-head">
+        <h2>Что говорят заказчики</h2>
+        <div class="score"><b>5,0</b><span>средняя оценка в 2ГИС по 31 оценке</span></div>
+      </div>
+      <div class="revs">
+        <blockquote><p>Сняли мерки, подсказали, как лучше, назвали сумму — которая в ходе работы не изменялась, что очень порадовало. Установили ворота в оговорённый срок, качество на высоте, делают как для себя.</p><cite><b>Тарас</b> · ворота под ключ · август 2024</cite></blockquote>
+        <blockquote><p>Заменили ворота на гараже под ключ! Всё сделано аккуратно, ворота окрашены, мусор за собой убрали.</p><cite><b>Кристина</b> · замена ворот · май 2025</cite></blockquote>
+        <blockquote><p>Этим летом подняли «из могилы» гараж. Отсыпали, заменили полы и покрыли крышу мягкой кровлей. Вот уже несколько месяцев как — всё отлично, работу свою знают.</p><cite><b>Богдан</b> · подъём, пол, крыша · октябрь 2024</cite></blockquote>
+        <blockquote><p>Необходимо было решить проблему с вентиляцией и постоянными течами после дождя, также были нужны упоры на двери и полка. После гидроизоляции в гараже наконец сухо!</p><cite><b>Юлия</b> · гидроизоляция, вентиляция · август 2025</cite></blockquote>
+        <blockquote><p>Перевозка гаража. Работа была чётко продумана, все детали учтены. Место под гараж отсыпано, заезд для машины умело рассчитан.</p><cite><b>Ирина</b> · перевозка гаража · август 2025</cite></blockquote>
+        <blockquote><p>Быстрый ремонт металлического гаража. Они просто его реанимировали, теперь он как новый!</p><cite><b>Ольга</b> · металлический гараж · август 2025</cite></blockquote>
+        <blockquote><p>Обращались в компанию два раза. Оба — увеличение проёма ворот в гараже. Быстро, качественно, по приемлемой цене.</p><cite><b>Ольга</b> · увеличение проёма · июль 2024</cite></blockquote>
+        <blockquote><p>Пол залили, 15 см. Сегодня зашёл посмотрел — просто шикарно.</p><cite><b>Камран</b> · заливка пола · май 2025</cite></blockquote>
+        <blockquote><p>Установили козырёк на капитальный гараж. Всё отлично, красиво, качественно и за приемлемую цену.</p><cite><b>Павел</b> · козырёк · июнь 2026</cite></blockquote>
+      </div>
+      <p class="rev-all">Все 28 отзывов — <a class="u" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001035872942/tab/reviews" target="_blank" rel="noopener">в 2ГИС</a>.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap how">
+      <div>
+        <h2>Как проходит работа</h2>
+      </div>
+      <div>
+        <ol>
+          <li><div>Вы пишете или звоните<span>Рассказываете, что с гаражом, присылаете фото.</span></div></li>
+          <li><div>Приезжаем и снимаем мерки<span>Смотрим гараж на месте и подсказываем, как сделать лучше.</span></div></li>
+          <li><div>Называем сумму и срок<span>До начала работ, чтобы вы понимали, на что рассчитывать.</span></div></li>
+          <li><div>Делаем<span>Изготавливаем, привозим, монтируем, красим.</span></div></li>
+          <li><div>Убираем за собой и сдаём работу<span>Вы принимаете готовый гараж.</span></div></li>
+        </ol>
+        <p class="src">Так порядок работы описывают сами заказчики в отзывах.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="dark">
+    <div class="wrap order">
+      <div class="side">
+        <h2>Заявка на ремонт</h2>
+        <p>Отметьте, что нужно сделать, и коротко опишите гараж. Заявка откроется в мессенджере уже готовым сообщением — останется нажать «Отправить».</p>
+        <p class="tip">Там же, в чате, приложите пару фото гаража. Так быстрее поймём объём работы и сориентируем по цене.</p>
+      </div>
+      <form id="f" novalidate>
+        <fieldset>
+          <legend>Что нужно сделать</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="job" value="Ворота">Ворота</label>
+            <label><input type="checkbox" name="job" value="Затвор / замок">Затвор / замок</label>
+            <label><input type="checkbox" name="job" value="Крыша / протечка">Крыша / протечка</label>
+            <label><input type="checkbox" name="job" value="Пол">Пол</label>
+            <label><input type="checkbox" name="job" value="Подъём гаража">Подъём гаража</label>
+            <label><input type="checkbox" name="job" value="Перевозка гаража">Перевозка гаража</label>
+            <label><input type="checkbox" name="job" value="Козырёк">Козырёк</label>
+            <label><input type="checkbox" name="job" value="Сварка">Сварка</label>
+            <label><input type="checkbox" name="job" value="Электрика">Электрика</label>
+            <label><input type="checkbox" name="job" value="Полки / вентиляция / утепление">Обустройство внутри</label>
+          </div>
+        </fieldset>
+        <div class="two">
+          <div><label for="kind">Гараж</label>
+            <select id="kind"><option>Капитальный (кирпич, блоки)</option><option>Металлический</option><option>Другой</option></select></div>
+          <div><label for="place">Где находится</label><input id="place" type="text" placeholder="Район, ГСК или адрес"></div>
+        </div>
+        <div><label for="what">Опишите задачу</label><textarea id="what" placeholder="Например: течёт крыша у задней стены, гараж 6×4"></textarea></div>
+        <div class="two">
+          <div><label for="name">Ваше имя</label><input id="name" type="text" autocomplete="name"></div>
+          <div><label for="phone">Телефон</label><input id="phone" type="tel" inputmode="tel" placeholder="+7" autocomplete="tel"></div>
+        </div>
+        <p class="err" id="err" role="alert"></p>
+        <div class="send">
+          <button class="btn wa" type="button" data-to="wa">Отправить в WhatsApp</button>
+          <button class="btn tg" type="button" data-to="tg">Отправить в Telegram</button>
+        </div>
+        <p class="small">Нажимая кнопку, вы соглашаетесь на обработку имени и телефона для ответа на заявку.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap">
+      <h2>Контакты</h2>
+      <div class="contacts">
+        <div><h3>Телефон</h3><p class="big"><a href="tel:+79638225000">+7 963 822-50-00</a></p><p class="sub"><a class="u" href="https://wa.me/79638225000" target="_blank" rel="noopener">WhatsApp</a> · <a class="u" href="https://t.me/garage_rem_serviskms" target="_blank" rel="noopener">Telegram</a></p></div>
+        <div><h3>Адрес</h3><p>Комсомольск-на-Амуре, Станционная, 2/2, бокс 7</p><p class="sub"><a class="u" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001035872942" target="_blank" rel="noopener">Показать на карте</a></p></div>
+        <div><h3>На связи</h3><p>Пн–Пт с 9:00 до 21:00</p><p class="sub">Сб, Вс — выходной. Заявку можно оставить в любой день.</p></div>
+        <div><h3>Оплата</h3><p>Наличными или переводом</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© ГаражРемСервис. Ремонт гаражей в Комсомольске-на-Амуре</div></footer>
+
+<div class="dock">
+  <a class="btn" href="#order">Оставить заявку</a>
+  <a class="btn ghost" href="tel:+79638225000">Позвонить</a>
+</div>
+
+<script>
+(function () {
+  var hd = document.getElementById("hd"), nav = document.getElementById("nav");
+  function onScroll() { hd.classList.toggle("solid", window.scrollY > 40); }
+  onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+  document.getElementById("burger").addEventListener("click", function () { hd.classList.toggle("open"); });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") hd.classList.remove("open"); });
+
+  var WA = "79638225000", TG = "garage_rem_serviskms";
+  var f = document.getElementById("f"), err = document.getElementById("err");
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function build() {
+    var jobs = [].slice.call(f.querySelectorAll("input[name=job]:checked")).map(function (c) { return c.value; });
+    var phone = val("phone");
+    if (!jobs.length && !val("what")) return { error: "Отметьте, что нужно сделать, или опишите задачу." };
+    if (!val("name")) return { error: "Напишите, как к вам обращаться." };
+    if (phone.replace(/\D/g, "").length < 10) return { error: "Проверьте номер телефона — в нём должно быть не меньше 10 цифр." };
+    var t = ["Здравствуйте! Заявка с сайта ГаражРемСервис."];
+    if (jobs.length) t.push("Нужно: " + jobs.join(", "));
+    t.push("Гараж: " + val("kind"));
+    if (val("place")) t.push("Где: " + val("place"));
+    if (val("what")) t.push("Задача: " + val("what"));
+    t.push("Имя: " + val("name"), "Телефон: " + phone);
+    return { text: t.join("\n") };
+  }
+  f.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-to]"); if (!b) return;
+    var r = build();
+    if (r.error) { err.textContent = r.error; return; }
+    err.textContent = "";
+    var q = encodeURIComponent(r.text);
+    window.open(b.dataset.to === "wa" ? "https://wa.me/" + WA + "?text=" + q : "https://t.me/" + TG + "?text=" + q, "_blank");
+  });
+})();
+</script>
+</body>
+</html>
